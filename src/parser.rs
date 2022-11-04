@@ -25,7 +25,7 @@ impl Parser {
         let mut current_char = self.input.chars().nth(self.position).unwrap();
         self.position += 1;
 
-        if current_char.is_digit(10) {
+        if current_char.is_ascii_digit() {
             let mut number = String::new();
             number.push(current_char);
             loop {
@@ -33,7 +33,7 @@ impl Parser {
                     break;
                 }
                 current_char = self.input.chars().nth(self.position).unwrap();
-                if current_char.is_digit(10) {
+                if current_char.is_ascii_digit() {
                     number.push(current_char);
                     self.position += 1;
                 } else {
@@ -50,7 +50,7 @@ impl Parser {
                             break;
                         }
                         current_char = self.input.chars().nth(self.position).unwrap();
-                        if current_char.is_digit(10) {
+                        if current_char.is_ascii_digit() {
                             number.push(current_char);
                             self.position += 1;
                         } else {
@@ -62,7 +62,7 @@ impl Parser {
             return Some(Token::Number(number.parse().unwrap()));
         }
 
-        if current_char.is_alphabetic() {
+        if current_char.is_ascii_alphanumeric() {
             let mut variable = String::new();
             variable.push(current_char);
             loop {
@@ -70,7 +70,7 @@ impl Parser {
                     break;
                 }
                 current_char = self.input.chars().nth(self.position).unwrap();
-                if current_char.is_alphabetic() || current_char.is_digit(10) {
+                if current_char.is_ascii_alphanumeric() {
                     variable.push(current_char);
                     self.position += 1;
                 } else {
