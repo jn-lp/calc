@@ -1,5 +1,5 @@
-use crate::analyzer::Analyzer;
-use crate::token::Token;
+use crate::lib::analyzer::Analyzer;
+use crate::lib::token::Token;
 
 #[derive(Debug)]
 pub struct Parser {

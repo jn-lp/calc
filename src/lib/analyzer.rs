@@ -1,4 +1,4 @@
-use crate::token::Token;
+use crate::lib::token::Token;
 
 #[derive(Debug, Clone, Eq, PartialEq)]
 pub enum AnalyzerError {
